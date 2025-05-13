@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: <%= ENV["PGUSER"] %>
+  password: <%= ENV["PGPASSWORD"] %>
+  host: <%= ENV["PGHOST"] %>
+  port: <%= ENV["PGPORT"] %>
+  pool: 5
+
+development:
+  <<: *default
+  database: ruby_app_development
+
+test:
+  <<: *default
+  database: ruby_app_test
+
+production:
+  <<: *default
+  database: ruby_app_production
