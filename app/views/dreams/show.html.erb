@@ -1,0 +1,20 @@
+<div class="dreams-page-container">
+  <h1 class="dream-title">Dream from <%= @dream.created_at.strftime("%B %d, %Y") %></h1>
+
+  <div class="dream-section">
+    <h3>AI Summary</h3>
+    <p><%= @dream.ai_summary %></p>
+  </div>
+
+  <div class="dream-section">
+    <h4>Keywords</h4>
+    <p class="dream-keywords"><%= @dream.ai_keywords %></p>
+  </div>
+
+  <div class="dream-section">
+    <h4>Original Text</h4>
+    <p><%= simple_format(@dream.raw_text) %></p>
+  </div>
+
+  <%= link_to "← Back to Dream List", dreams_path, class: "btn back-button" %>
+</div>

@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  raw_text: MyText
+  ai_summary: MyText
+  ai_keywords: MyString
+
+two:
+  raw_text: MyText
+  ai_summary: MyText
+  ai_keywords: MyString

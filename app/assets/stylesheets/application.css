@@ -1,10 +1,167 @@
-/*
- * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
- */
+.landing-container {
+    text-align: center;
+    margin-top: 100px;
+    font-family: sans-serif;
+}
+
+.button-group {
+    margin-top: 40px;
+}
+
+.app-button {
+    display: inline-block;
+    margin: 10px;
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.app-button:hover {
+    background-color: #0056b3;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    font-family: sans-serif;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 70%;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+}
+
+button,
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+}
+
+.btn-success {
+    background-color: #28a745;
+}
+
+.list-group-item {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+h1 {
+    margin: 30px 0 20px;
+}
+
+.btn {
+    padding: 8px 14px;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.back-button {
+    background-color: #6c757d;
+    margin-right: 10px;
+}
+
+.add-button {
+    background-color: #28a745;
+}
+
+.search-form {
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
+}
+
+.search-input {
+    width: 25%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-button {
+    background-color: #007bff;
+}
+
+.dream-list {
+    list-style: none;
+    padding: 0;
+}
+
+.dream-item {
+    background-color: #f8f8f8;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #e0e0e0;
+}
+
+.dream-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dream-date-link {
+    color: #333;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.delete-button {
+    background-color: #dc3545;
+}
+
+.dreams-page-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fdfdfd;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-family: sans-serif;
+}
+
+.dream-title {
+    font-size: 28px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #333;
+}
+
+.dream-section {
+    margin-bottom: 25px;
+}
+
+.dream-section h3,
+.dream-section h4 {
+    margin-bottom: 8px;
+    color: #444;
+}
+
+.dream-keywords {
+    font-style: italic;
+    color: #555;
+}

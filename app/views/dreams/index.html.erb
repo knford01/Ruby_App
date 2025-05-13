@@ -1,0 +1,30 @@
+<div class="dreams-page-container">
+  <%= link_to "← Back to Home", root_path, class: "btn back-button" %>
+  <%= link_to "Add New Dream", new_dream_path, class: "btn add-button" %>
+
+  <h1>Saved Dreams</h1>
+
+  <%= form_with url: search_dreams_path, method: :get, local: true, class: "search-form" do |form| %>
+    <%= form.text_field :q, placeholder: "Search dreams...", class: "search-input" %>
+    <%= form.submit "Search", class: "btn search-button" %>
+  <% end %>
+
+  <% if @dreams.any? %>
+    <ul class="dream-list">
+      <% @dreams.each do |dream| %>
+        <li class="dream-item">
+          <div class="dream-header">
+            <strong>
+              <%= link_to dream.created_at.strftime("%B %d, %Y"), dream_path(dream), class: "dream-date-link" %>
+            </strong>
+            <%= button_to "Delete", dream_path(dream), method: :delete, data: { confirm: "Are you sure?" }, class: "btn delete-button" %>
+          </div>
+          <em><%= dream.ai_keywords %></em>
+          <p><%= truncate(dream.ai_summary, length: 150) %></p>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No dreams found.</p>
+  <% end %>
+</div>
