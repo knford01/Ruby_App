@@ -1,0 +1,60 @@
+.work-list {
+    list-style: none;
+    padding: 0;
+}
+
+.work-item {
+    background-color: #f8f8f8;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #e0e0e0;
+}
+
+.work-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.work-date-link {
+    color: #333;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.delete-button {
+    background-color: #dc3545;
+}
+
+.work-page-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fdfdfd;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-family: sans-serif;
+}
+
+.work-title {
+    font-size: 28px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #333;
+}
+
+.work-section {
+    margin-bottom: 25px;
+}
+
+.work-section h3,
+.work-section h4 {
+    margin-bottom: 8px;
+    color: #444;
+}
+
+.work-keywords {
+    font-style: italic;
+    color: #555;
+}

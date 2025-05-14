@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_05_13_162808) do
+ActiveRecord::Schema[8.0].define(version: 2025_05_14_005216) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -21,4 +21,23 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_13_162808) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "work_days", force: :cascade do |t|
+    t.date "entry_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "description"
+  end
+
+  create_table "work_entries", force: :cascade do |t|
+    t.bigint "work_day_id", null: false
+    t.text "raw_text"
+    t.text "ai_summary"
+    t.string "ai_keywords"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["work_day_id"], name: "index_work_entries_on_work_day_id"
+  end
+
+  add_foreign_key "work_entries", "work_days"
 end

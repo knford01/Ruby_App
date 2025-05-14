@@ -1,0 +1,30 @@
+<div class="work-page-container">
+    <%= link_to "← Back to Work Days", work_days_path, class: "btn back-button" %>
+    <%= link_to "Add New Work Entry", new_work_day_work_entry_path(@work_day), class: 'btn add-button' %>
+
+    <h1>Work Day for <%= @work_day.entry_date %></h1>
+
+    <p><strong>Description:</strong> <%= @work_day.description %></p>
+
+    <hr>
+
+    <h1>Work Entries</h1>
+
+    <% if @work_entries.any? %>
+
+        <ul class="work-list">
+            <% @work_entries.each do |entry| %>
+                <li class="work-item">
+                <div class="work-header">
+                    <em>Keywords: <%= entry.ai_keywords %></em>
+                    <%= button_to "Delete", work_day_work_entry_path(@work_day, entry), method: :delete, data: { confirm: "Are you sure you want to delete this entry?" }, class: "btn delete-button" %>
+                </div>
+                <p>Description: <%= entry.ai_summary %></p>
+                </li>
+            <% end %>
+        </ul>
+
+    <% else %>
+        <p>No work entries for this day.</p>
+    <% end %>
+</div>

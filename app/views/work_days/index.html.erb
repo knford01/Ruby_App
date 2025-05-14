@@ -1,0 +1,40 @@
+<div class="work-page-container">
+    <%= link_to "← Back to Home", root_path, class: "btn back-button" %>
+    <%= link_to "Add New Work Day", new_work_day_path, class: "btn add-button" %>
+
+    <h1>Work Journal</h1>
+
+    <%= form_with url: work_journal_path, method: :get, local: true do |form| %>
+        <div class="form-group">
+            <%= form.label :start_date, "Start Date" %>
+            <%= form.date_field :start_date, value: params[:start_date] %>
+
+            <%= form.label :end_date, "End Date" %>
+            <%= form.date_field :end_date, value: params[:end_date] %>
+            <%= form.submit "Filter", class: "btn btn-primary btn-sm" %>
+        </div>
+    <% end %>
+
+    <% if @work_days.any? %>
+    <h3>Saved Work Days</h3>
+
+    <ul class="work-list">
+        <% @work_days.each do |work_day| %>
+
+        <li class="work-item">
+          <div class="work-header">
+            <strong>
+              <%= link_to work_day.entry_date, work_day_path(work_day), class: "work-date-link" %>
+            </strong>
+            <%= button_to "Delete", work_day_path(work_day), method: :delete, data: { confirm: "Are you sure?" }, class: "btn delete-button" %>
+          </div>
+          <p><%= truncate(work_day.description, length: 150) %></p>
+        </li>
+
+      <% end %>
+    </ul>
+
+    <% else %>
+    <p>No work days found for the selected range.</p>
+    <% end %>
+</div>

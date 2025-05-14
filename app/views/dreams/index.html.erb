@@ -10,6 +10,7 @@
   <% end %>
 
   <% if @dreams.any? %>
+
     <ul class="dream-list">
       <% @dreams.each do |dream| %>
         <li class="dream-item">
@@ -24,7 +25,8 @@
         </li>
       <% end %>
     </ul>
+    
   <% else %>
     <p>No dreams found.</p>
   <% end %>
-</div>
+</div> 

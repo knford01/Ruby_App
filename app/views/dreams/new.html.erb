@@ -1,5 +1,4 @@
 <div class="dreams-page-container">  
-  </br>
   <%= link_to "← Back to Saved Dreams", dreams_path, class: "btn btn-secondary" %>
 
   <h1>Add a New Dream</h1>
@@ -10,7 +9,7 @@
       <%= form.text_area :raw_text, rows: 8, cols: 80, class: "dream-input" %>
     </div>
 
-    <%= form.submit "Save Dream", class: "btn submit-button" %>
+    <%= form.submit "Save Dream", class: "btn add-button" %>
   <% end %>
 </div>
 

@@ -8,11 +8,17 @@ Rails.application.routes.draw do
   # Dream Journal App
   resources :dreams, only: [:new, :create, :index, :show, :destroy]
   get "/dreams/search", to: "dreams#search", as: "search_dreams"
-  
-  # Aliases for UI clarity (optional, routes to same as `dreams#new`)
   get "/dream_journal", to: "dreams#index", as: "dream_journal"
   
-  # Work Journal & Order Fulfillment (coming soon)
-  get "/work_journal", to: "home#work_journal"
+  # Work Journal App
+  resources :work_days, only: [:new, :create, :index, :show, :destroy] do
+    resources :work_entries, only: [:new, :create, :destroy]
+    collection do
+      get :search
+    end
+  end
+  get "/work_journal", to: "work_days#index", as: "work_journal"
+
+  # Order Fulfillment App (coming soon)
   get "/order_fulfillment", to: "home#order_fulfillment"
 end

@@ -42,7 +42,7 @@ class DreamsController < ApplicationController
   end
 
   def index
-    @dreams = Dream.order(created_at: :desc)
+    @dreams = Dream.order(created_at: :desc) 
   end
 
   def show
