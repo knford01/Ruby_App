@@ -1,0 +1,24 @@
+<div class="order-page-container">
+  <div class="order-actions">
+    <%= link_to "← Back to Home", root_path, class: "btn back-button" %>
+    <%= button_to "Import Orders from Shopify", import_orders_path, method: :post, class: "btn add-button" %>
+  </div>
+
+  <%= render "shared/navigation" %>
+  
+  <h1>New Orders</h1>
+
+  <% if @orders.any? %>
+
+    <ul class="order-list">
+      <% @orders.each do |order| %>
+        <li class="order-item">
+          <%= link_to "Order #: #{order.order_number} - Customer ID: #{order.customer_name} - Total Cost: $#{order.total_price}0", order_path(order) %>
+        </li>
+      <% end %>
+    </ul>
+
+  <% else %>
+    <p>No orders to display.</p>
+  <% end %>
+</div> 

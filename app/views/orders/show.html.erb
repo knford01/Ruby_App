@@ -1,0 +1,58 @@
+<div class="order-page-container">
+  <div class="order-actions">
+    <%= link_to "← Back to Home", root_path, class: "btn back-button" %>
+  </div>
+
+  <%= render "shared/navigation" %>
+
+  <h1 class="page-title">Order Details</h1>
+
+  <div class="order-info">
+    <p><strong>Order ID:</strong> <%= @order.shopify_order_id %></p>
+    <p><strong>Customer:</strong> <%= @order.customer_name %></p>
+  </div>
+
+  <% line_items = @order.order_data %>
+  <h3>Line Items</h3>
+  <table class="order-table">
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Fulfillable Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% line_items.each do |item| %>
+        <tr>
+          <td><%= item["name"] %></td>
+          <td>$<%= item["price"] %></td>
+          <td><%= item["fulfillable_quantity"] %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <% if @order.status == "new" %>
+    <h3>Fulfill Order</h3>
+    <%= form_with model: @order, url: order_path(@order), method: :patch, class: "fulfill-form" do |f| %>
+      <div class="form-group">
+        <%= f.label :tracking_number, class: "form-label" %>
+        <%= f.text_field :tracking_number, class: "form-input" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :ship_date, class: "form-label" %>
+        <%= f.date_field :ship_date, class: "form-input" %>
+      </div>
+      <div class="form-group">
+        <%= f.submit "Mark as Shipped", class: "btn submit-button" %>
+      </div>
+    <% end %>
+  <% elsif @order.status == "shipped" %>
+    <p><strong>Status:</strong> Shipped</p>
+    <p><strong>Tracking:</strong> <%= @order.tracking_number %></p>
+    <p><strong>Ship Date:</strong> <%= @order.ship_date %></p>
+  <% else %>
+    <p><strong>Status:</strong> Delivered</p>
+  <% end %>
+</div>

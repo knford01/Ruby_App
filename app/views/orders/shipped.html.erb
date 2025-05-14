@@ -1,0 +1,26 @@
+<div class="order-page-container">
+  <div class="order-actions">
+    <%= link_to "← Back to Home", root_path, class: "btn back-button" %>
+  </div>
+
+  <%= render "shared/navigation" %>
+
+  <h1>Shipped Orders</h1>
+
+  <% if @orders.any? %>
+
+    <ul class="order-list">
+      <% @orders.each do |order| %>
+        <li class="order-item">
+          <div class="order-actions">
+            <%= link_to "Order #: #{order.order_number} - Customer ID: #{order.customer_name} - Tracking Number: #{order.tracking_number}", order_path(order) %>
+            <%= button_to "Mark Delivered", mark_delivered_order_path(order), method: :patch, data: { confirm: "Mark this order as delivered?" }, class: "btn add-button" %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+
+  <% else %>
+    <p>No shipped orders pending delivery.</p>
+  <% end %>
+</div> 
