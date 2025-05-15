@@ -11,7 +11,7 @@
     <ul class="order-list">
       <% @orders.each do |order| %>
         <li class="order-item">
-          <%= link_to "Order #: #{order.order_number} - Customer ID: #{order.customer_name} - Delivered on: #{order.ship_date}", order_path(order) %>
+          <%= link_to "Order #: #{order.order_number} - Customer ID: #{order.customer_name} - Delivered on: #{order.delivery_date}", order_path(order) %>
         </li>
       <% end %>
     </ul>

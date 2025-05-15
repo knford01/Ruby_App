@@ -60,7 +60,7 @@ class OrdersController < ApplicationController
 
   def update
     if @order.update(order_params.merge(status: "shipped"))
-      update_shopify_fulfillment(@order)
+      # update_shopify_fulfillment(@order)
       redirect_to shipped_orders_path, notice: "Order marked as shipped and updated in Shopify."
     else
       render :show, alert: "Failed to update order."
@@ -68,7 +68,7 @@ class OrdersController < ApplicationController
   end
 
   def mark_delivered
-    if @order.update(status: "delivered")
+    if @order.update(status: "delivered", delivery_date: Date.today)
       redirect_to delivered_orders_path, notice: "Order marked as delivered."
     else
       redirect_to shipped_orders_path, alert: "Failed to mark order as delivered."
