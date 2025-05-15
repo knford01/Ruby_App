@@ -312,7 +312,8 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    shopify_api (12.2.1)
+    shopify_api (14.10.0)
+      activesupport
       concurrent-ruby
       hash_diff
       httparty
@@ -400,7 +401,7 @@ DEPENDENCIES
   rubocop-rails-omakase
   ruby-openai
   selenium-webdriver
-  shopify_api (~> 12.0)
+  shopify_api (~> 14.10)
   solid_cable
   solid_cache
   solid_queue
