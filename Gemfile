@@ -21,7 +21,7 @@ gem 'ruby-openai'
 # silence warnings
 gem 'fiddle'
 # Set Up the Shopify Gem
-gem 'shopify_api', '~> 12.0'
+gem 'shopify_api', '~> 14.11'
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
